@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from "../Header/Header";
-import Body from "../body";
 import NavBar from "../NavBar/NavBar";
+import Main from "../Main/Main";
 
 class App extends Component {
     render() {
@@ -9,7 +9,7 @@ class App extends Component {
             <div className="App">
                 <Header/>
                 <NavBar/>
-                <Body/>
+                <Main/>
             </div>
         );
     }

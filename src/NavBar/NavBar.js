@@ -1,22 +1,42 @@
 import React, {Component} from 'react';
-import {Navbar} from "react-bootstrap";
-import NavItem from "react-bootstrap/es/NavItem";
-import Nav from "react-bootstrap/es/Nav";
-import Grid from "react-bootstrap/es/Grid";
+import {Grid, Nav, Navbar, NavItem} from "react-bootstrap";
+import {Link} from "react-router-dom";
+import {LinkContainer} from "react-router-bootstrap";
 
 class NavBar extends Component {
     render() {
         return (
-            <div>
+            <div className="NavBar">
                 <Grid>
-                    <Navbar>
-                        <Nav>
-                            <NavItem eventKey={1} href="/">Home</NavItem>
-                            <NavItem eventKey={2} href="/users">User List</NavItem>
-                            <NavItem eventKey={3} href="/role">Role List</NavItem>
-                        </Nav>
+
+                    <Navbar collapseOnSelect fluid>
+
+                        <Navbar.Header>
+                            <Navbar.Brand>
+                                <Link to="/">Home</Link>
+                            </Navbar.Brand>
+                            <Navbar.Toggle/>
+                        </Navbar.Header>
+
+                        <Navbar.Collapse>
+                            <Nav>
+                                <LinkContainer to="/user">
+                                    <NavItem eventKey={1}>Users</NavItem>
+                                </LinkContainer>
+                                <LinkContainer to="/role">
+                                    <NavItem eventKey={2}>Roles</NavItem>
+                                </LinkContainer>
+                            </Nav>
+                            <Nav pullRight>
+                                <NavItem eventKey={1}>Sign Up</NavItem>
+                                <NavItem eventKey={2}>Login</NavItem>
+                            </Nav>
+                        </Navbar.Collapse>
+
                     </Navbar>
+
                 </Grid>
+
             </div>
         );
     }
